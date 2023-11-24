@@ -28,4 +28,24 @@ public class ProdutoController {
     public List<Produto> getAllByDescription(@RequestParam("descricao")String descricao) {
         return this.pr.findByDescricaoContainingIgnoreCase(descricao);
     }
+
+    @GetMapping("/searchCategory")
+    public List<Produto> getAllByCategory(@RequestParam("categoria")String categoria) {
+        return this.pr.findByCategoriaContainingIgnoreCase(categoria);
+    }
+
+    @GetMapping("/searchCondition")
+    public List<Produto> getAllByCondition(@RequestParam("condicao")String condicao) {
+        return this.pr.findByCondicaoContainingIgnoreCase(condicao);
+    }
+
+
+    @GetMapping("/byPrice")
+    public List<Produto> getByPrice(
+            @RequestParam(name="vi") double vi,
+            @RequestParam(name="vf") double vf)
+    {
+        return this.pr.findByValues(vi, vf);
+    }
+
 }

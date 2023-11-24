@@ -14,20 +14,23 @@ public class Produto {
     @Column(nullable = false, length = 100)
     private String nome;
     @Column(nullable = false, length = 255)
-    private String decricao;
+    private String descricao;
     @Column(nullable = false, length = 50)
     private String categoria;
     @Column(nullable = false)
     private double valor;
+    @Column(nullable = false)
+    private String condicao;
 
     public Produto() {
     }
 
-    public Produto(String nome, String decricao, String categoria, double valor) {
+    public Produto(String nome, String descricao, String categoria, double valor, String condicao) {
         this.nome = nome;
-        this.decricao = decricao;
+        this.descricao = descricao;
         this.categoria = categoria;
         this.valor = valor;
+        this.condicao = condicao;
     }
 
     public int getId() {
@@ -46,12 +49,12 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getDecricao() {
-        return decricao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDecricao(String decricao) {
-        this.decricao = decricao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getCategoria() {
@@ -68,5 +71,13 @@ public class Produto {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public String getCondicao() {
+        return condicao;
+    }
+
+    public void setCondicao(String condicao) {
+        this.condicao = condicao;
     }
 }
